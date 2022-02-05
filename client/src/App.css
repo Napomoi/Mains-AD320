@@ -1,6 +1,21 @@
-.container {
+.container{
   display: flex;
+  width: 70vw;
+  justify-content: space-around;
+  }
 
+.card-container{
+      display: flex; 
+      flex-direction: column;   
+      background-color: blue;
+      align-items: center;
+  }
 
+.card-controls{
+  width:20vw;
+  display: flex; 
+  background-color: coral;
+  margin-top: 10px;
+  justify-content: space-evenly;
 }
 

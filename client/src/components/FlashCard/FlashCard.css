@@ -1,6 +1,16 @@
 .card {
-    width:200px;
+    width:40vw;
     height: 200px;
     background-color: crimson;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
 
+img {
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
 }

@@ -3,16 +3,27 @@ import './App.css';
 import Topbar from './components/Topbar/Topbar'
 import CardNavigation from './components/CardNavigation/CardNavigation'
 import FlashCard from './components/FlashCard/FlashCard';
+import Button from './components/Button/Button';
+import React from 'react';
 
 function App() {
   return (
-    <div> 
+    <React.Fragment>
       <Topbar/>
       <div className='container'> 
         <CardNavigation/>
+        <div className="card-container">
         <FlashCard/>
-      </div>
-  </div>
+        <div className="card-controls">
+        <Button text ="Back"/>
+        <Button text ="Flip"/>
+        <Button text ="Next"/>
+        </div>
+        </div>    
+        </div>
+    </React.Fragment>
+
+          
 
   );
 }

@@ -1,9 +1,28 @@
 .card-nav{
-    width: 20vw;
-    background-color: aquamarine;
-    margin-top: 50px;
-    margin-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    width:20vw;
+    background-color: coral;
+    display: flex;
+    justify-content: space-around;
+    list-style-type:none;
 
+}
+
+
+.container{
+    display: flex;
+    width: 70vw;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+.card-container{
+        display: flex; 
+        flex-direction: column;   
+        background-color: blue;
+    }
+
+.card-controls{
+    width:40vw;
+    display: flex; 
+    background-color: coral;
 }
