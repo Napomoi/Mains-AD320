@@ -2,18 +2,21 @@
   display: flex;
   width: 70vw;
   justify-content: space-around;
-  }
+  align-items: center;
+  margin-top: 20px;
+     }
 
 .card-container{
       display: flex; 
       flex-direction: column;   
       background-color: rgb(230, 224, 220);
       align-items: center;
+      justify-content: space-around;
+      margin-top: 20px;
   }
 
 .card-controls{
   width:20vw;
-  height:80px;
   display: flex; 
   background-color: rgb(230, 224, 220);
   margin-top: 10px;
