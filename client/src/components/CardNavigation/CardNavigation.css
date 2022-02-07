@@ -1,12 +1,10 @@
 .card-nav{
     width:20vw;
-    background-color: coral;
+    background-color: rgb(230, 224, 220);
     display: flex;
     justify-content: space-around;
     list-style-type:none;
-
 }
-
 
 .container{
     display: flex;
@@ -18,11 +16,15 @@
 .card-container{
         display: flex; 
         flex-direction: column;   
-        background-color: blue;
+        background-color: rgb(230, 224, 220) ;
     }
 
 .card-controls{
     width:40vw;
+    height:30px;
+    margin-top: 20px;
     display: flex; 
     background-color: coral;
 }
+
+li {list-style-type: none;}
