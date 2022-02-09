@@ -1,15 +1,11 @@
 .card {
     width:40vw;
-    height: 200px;
+    /* height: 200px; */
     background-color: rgb(230, 224, 220);
     display: flex;
     justify-content: space-around;
-    padding-bottom: 50px;
-    margin-top: 20px;
-    
-    margin-bottom: 40px;
-
-}
+     margin: 20px;
+    }
 
 img {
     margin-right: 10px;
