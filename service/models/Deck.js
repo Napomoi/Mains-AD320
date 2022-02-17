@@ -11,9 +11,9 @@ const CardSchema = new mongoose.Schema({
 
 const DeckSchema = new mongoose.Schema({
     name: String,
-    Cards: [CardSchema], // allows us to cretae  ana array of card objects
+    cards: [CardSchema], // allows us to create ana array of card objects
     size: Number,
-    userID: mongoose.Type.ObjectID
+    userID: mongoose.Types.ObjectId
 })
 
 export const Deck = mongoose.model('Deck', DeckSchema)

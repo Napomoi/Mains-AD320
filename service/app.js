@@ -32,15 +32,20 @@ app.get('/', (req, res) => {
 // get all cards from deck without width
 // localhost:8000/decks/deckID/cards
 // localhost:8000/decks/4/cards
+
 app.get('/decks/:id/cards', async (req, res) => {
-  const limit = req.query.limit
-  const deck = await Deck.findById(req.params.id)
-  if (deck) {
-    res.send(deck.cards.slice(0, 5))
-  } else {
-    res.sendStatus(404)
-  }
+  res.sendStatus('503')
 })
+
+// app.get('/decks/:id/cards', async (req, res) => {
+//   const limit = req.query.limit
+//   const deck = await Deck.findById(req.params.id)
+//   if (deck) {
+//     res.send(deck.cards.slice(0, 5))
+//   } else {
+//     res.sendStatus(404)
+//   }
+// })
 const cardsById = async (req, res) => {
   const card = await Deck.findOne({
     'cards._id': req.params.id
