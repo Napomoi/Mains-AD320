@@ -6,7 +6,7 @@ const CardSchema = new mongoose.Schema({
     frontImage: String,
     frontText: String,
     backImage: String,
-    backImage: String,
+    backText: String,
 })
 
 const DeckSchema = new mongoose.Schema({
