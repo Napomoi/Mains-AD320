@@ -22,22 +22,22 @@ app.use(cors())
 app.use(express.json())
 app.use(exampleMiddleware)
 
-// Routes
-//localhost:8000
+Routes
+localhost:8000
 // health check
 
-// app.get('/', (req, res) => {
-//   res.send('Hello, world!')
-// })
+app.get('/', (req, res) => {
+  res.send('Hello, world!')
+})
 
 // // get all cards from deck without width
 // // localhost:8000/decks/deckID/cards
 // // localhost:8000/decks/4/cards
 
-app.get('/decks/:id/cards', async (req, res) => {
-  console.log('request id', req.params.id)  
-  res.sendStatus('503')
-})
+// app.get('/decks/:id/cards', async (req, res) => {
+//   console.log('request id', req.params.id)  
+//   res.sendStatus('503')
+// })
 
 // app.get('/decks/:id/cards', async (req, res) => {
 //   const limit = req.query.limit
