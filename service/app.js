@@ -6,7 +6,7 @@ const app = express()
 const port = 8000
 
 // Connect to MongoDB
-const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@crit-cluster.bpw1p.mongodb.net/notoriety?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@week6cluster.1qfd4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 try {
   await mongoose.connect(connectionString)
 } catch (err) {
@@ -22,8 +22,8 @@ app.use(cors())
 app.use(express.json())
 app.use(exampleMiddleware)
 
-Routes
-localhost:8000
+// Routes
+// localhost:8000
 // health check
 
 app.get('/', (req, res) => {
@@ -55,13 +55,13 @@ app.get('/', (req, res) => {
 //   })
 //   res.status(200).send(card)
 // }
-// //Get an individual card by id
-// // localhost:8000/cards/c1bdb3be
-// app.get('/cards/:id', cardsById)
-// const isUrl = (value) => {
-//   const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
-//   return re.test(value)
-// }
+//Get an individual card by id
+// localhost:8000/cards/c1bdb3be
+app.get('/cards/:id', cardsById)
+const isUrl = (value) => {
+  const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+  return re.test(value)
+}
 
 // // Create card
 // // localhost:8000/cards/
