@@ -6,6 +6,7 @@ const app = express()
 const port = 8000
 
 // Connect to MongoDB
+//dummy
 const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@week6cluster.1qfd4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 try {
   await mongoose.connect(connectionString)
