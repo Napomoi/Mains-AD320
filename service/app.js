@@ -36,20 +36,38 @@ app.get('/', (req, res) => {
 // // localhost:8000/decks/deckID/cards
 // // localhost:8000/decks/4/cards
 
-// app.get('/decks/:id/cards', async (req, res) => {
-//   console.log('request id', req.params.id)  
-//   res.sendStatus('503')
+
+// Get all cards from deck paginated
+app.get('/decks/:id/cards', async (req, res) => {
+    const limit = req.query.limit
+    const deck = await Deck.findById(req.params.id)
+    if (deck) {
+      res.send(deck.cards.slice(0, 5))
+    } else {
+      res.sendStatus(404)
+    }
+  })
+  
+// Get all cards from deck
+app.get('/decks/:id/cards', async (req, res) => {
+  const limit = req.query.limit
+  const deck = await Deck.findById(req.params.id)
+  if (deck) {
+    res.send(deck.cards)
+  } else {
+    res.sendStatus(404)
+  }
 })
 
-// app.get('/decks/:id/cards', async (req, res) => {
-//   const limit = req.query.limit
-//   const deck = await Deck.findById(req.params.id)
-//   if (deck) {
-//     res.send(deck.cards.slice(0, 5))
-//   } else {
-//     res.sendStatus(404)
-//   }
-// })
+// Get individual card by Id
+const cardsById = async (req, res) => {
+    const deck = await Deck.findOne({'cards._id': req.params.id})
+    if (deck) {
+      res.send(deck.cards.filter(card => card._id.toString() === req.params.id))
+    } else {
+      res.sendStatus(404)
+    }
+  }
 
 // const cardsById = async (req, res) => {
 //   const card = await Deck.findOne({
@@ -59,11 +77,11 @@ app.get('/', (req, res) => {
 // }
 //Get an individual card by id
 // localhost:8000/cards/c1bdb3be
-// app.get('/cards/:id', cardsById)
-// const isUrl = (value) => {
-//   const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
-//   return re.test(value)
-// }
+app.get('/cards/:id', cardsById)
+const isUrl = (value) => {
+  const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+  return re.test(value)
+}
 
 // // Create card
 // // localhost:8000/cards/
