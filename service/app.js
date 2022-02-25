@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 // // localhost:8000/decks/4/cards
 
 
-// Get all cards from deck paginated
+// Get all cards for a deck, with the option to paginate results
 app.get('/decks/:id/cards', async (req, res) => {
     const limit = req.query.limit
     const deck = await Deck.findById(req.params.id)
@@ -47,20 +47,8 @@ app.get('/decks/:id/cards', async (req, res) => {
       res.sendStatus(404)
     }
   })
-  
-// Get all cards from deck
-app.get('/decks/:id/cards', async (req, res) => {
-  const limit = req.query.limit
-  const deck = await Deck.findById(req.params.id)
-  if (deck) {
-    res.send(deck.cards)
-  } else {
-    res.sendStatus(404)
-  }
-})
-
-// Get individual card by Id
-const cardsById = async (req, res) => {
+  // Get individual card by Id
+  const cardsById = async (req, res) => {
     const deck = await Deck.findOne({'cards._id': req.params.id})
     if (deck) {
       res.send(deck.cards.filter(card => card._id.toString() === req.params.id))
@@ -68,20 +56,26 @@ const cardsById = async (req, res) => {
       res.sendStatus(404)
     }
   }
+  app.get('/cards/:id', cardsById)
+  // Get a deck by ID
+  app.get('/decks/:id', async (req, res) => {
+    const deck = await Deck.findById(req.params.id)
+    if (deck) {
+      res.send(deck)
+    } else {
+      res.sendStatus(404)
+    }
+  })
+  // Get a deck by user
+  app.get('/users/:id', async (req, res) => {
+    const deck = await Deck.findOne({'userId': req.params.id})
+    if (deck) {
+      res.send(deck)
+    } else {
+      res.sendStatus(404)
+    }
+  })
 
-// const cardsById = async (req, res) => {
-//   const card = await Deck.findOne({
-//     'cards._id': req.params.id
-//   })
-//   res.status(200).send(card)
-// }
-//Get an individual card by id
-// localhost:8000/cards/c1bdb3be
-app.get('/cards/:id', cardsById)
-const isUrl = (value) => {
-  const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
-  return re.test(value)
-}
 
 // // Create card
 // // localhost:8000/cards/
@@ -121,6 +115,8 @@ const isUrl = (value) => {
 //     res.sendStatus(502)
 //   }
 // })
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 })
