@@ -27,6 +27,7 @@ app.use(exampleMiddleware)
 // localhost:8000
 // health check
 
+
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
@@ -38,7 +39,7 @@ app.get('/', (req, res) => {
 // app.get('/decks/:id/cards', async (req, res) => {
 //   console.log('request id', req.params.id)  
 //   res.sendStatus('503')
-// })
+})
 
 // app.get('/decks/:id/cards', async (req, res) => {
 //   const limit = req.query.limit
@@ -58,11 +59,11 @@ app.get('/', (req, res) => {
 // }
 //Get an individual card by id
 // localhost:8000/cards/c1bdb3be
-app.get('/cards/:id', cardsById)
-const isUrl = (value) => {
-  const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
-  return re.test(value)
-}
+// app.get('/cards/:id', cardsById)
+// const isUrl = (value) => {
+//   const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+//   return re.test(value)
+// }
 
 // // Create card
 // // localhost:8000/cards/
