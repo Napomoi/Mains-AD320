@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-
 import {
   Paper,
   List,
@@ -8,13 +7,10 @@ import {
   ListSubheader,
   Stack,
 } from "@mui/material"
-
 import Deck from '../Deck/Deck'
 import CreateFlashcard from '../Flashcard/CreateFlashcard'
-
 const DeckProvider = ({ userId, decks, createMode }) => {
   const [index, setIndex] = useState(0)
-
   return (
     <Stack
       direction="row"
@@ -47,5 +43,4 @@ const DeckProvider = ({ userId, decks, createMode }) => {
     </Stack>
   )
 }
-
 export default DeckProvider
