@@ -8,8 +8,8 @@ import {
   CardMedia,
   Typography
 } from '@mui/material'
-
 function Flashcard({ content, previous, next, flip }) {
+  console.log(content)
   return (
     <Box sx={{ width: '100%', mt: 8, display: 'flex', justifyContent: 'space-around'}}>
       <Card sx={{ width: '40vw' }} elevation={3}>
@@ -43,5 +43,4 @@ function Flashcard({ content, previous, next, flip }) {
     </Box>
   )
 }
-
 export default Flashcard

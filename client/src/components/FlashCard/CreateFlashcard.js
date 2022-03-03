@@ -1,15 +1,27 @@
 import React, {useState} from "react"
 import { Button, Stack, TextField } from "@mui/material"
 import axios from 'axios'
-
 const CreateFlashcard = ({ userId, deckId }) => {
   // how can we use state here to make sure we're validating info
   console.log(`[CreateFlashcard] deckId is ${deckId}`)
   const [formValue, setFormValue] = useState({})
-
+  const isUrl = (value) => {
+    const re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+    return re.test(value)
+  }
+  const validateFormValue = (userInput) => {
+   return (
+     userInput.frontImage && 
+     userInput.backImage && 
+     userInput.frontText && 
+     userInput.backText && 
+     isUrl(userInput.frontImage) && 
+     isUrl(userInput.backImage))
+  }
   const handleChange = (event) => {
     event.preventDefault()
     console.log("[CreateFlashcard] onChange ", event)
+    console.log(validateFormValue(formValue), "validation status")
     const currentValues = formValue
     currentValues[event.target.name] = event.target.value
     setFormValue(currentValues)
@@ -25,7 +37,6 @@ const CreateFlashcard = ({ userId, deckId }) => {
       console.log(`response error ${err.status}`)
     }
   }
-
   return (
     <Stack component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
       <span>Form values: {formValue.frontText} &amp; {formValue.backText}</span>
@@ -66,11 +77,11 @@ const CreateFlashcard = ({ userId, deckId }) => {
         id="backText"
         onChange={handleChange}
       />
-      <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+      <Button type="submit" disabled={validateFormValue(formValue) ? true : false} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
         Submit
       </Button>
     </Stack>
   )
 }
-
 export default CreateFlashcard
+
