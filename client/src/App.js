@@ -4,6 +4,7 @@ import './App.css'
 import Topbar from './components/Topbar/Topbar'
 import DeckProvider from './components/Deck/DeckProvider'
 import axios from 'axios'
+import { appBarClasses } from '@mui/material'
 
 function App() {
   const [createMode, setCreateMode] = useState(false)
@@ -26,5 +27,14 @@ function App() {
     </React.Fragment>
   )
 }
+
+app.post('/users/:id.cards', createCard)
+
+// User Routes
+app.get('/users', getUsers)
+app.get('/users/:id', notImplemented)
+app.post('/users', getUsers)
+app.put('/users/:id', notImplemented)
+app.delete('/users/:id', notImplemented)
 
 export default App;
