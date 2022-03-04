@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Flashcard"
+		},
+		{
+			"path": "..\\Topbar"
+		},
+		{
+			"path": "..\\..\\..\\..\\service\\handlers"
+		},
+		{
+			"path": "..\\..\\..\\..\\service\\models"
+		}
+	],
+	"settings": {}
+}
