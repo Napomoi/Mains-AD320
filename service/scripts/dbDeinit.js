@@ -4,6 +4,7 @@ import { User } from '../models/User.js'
 const sleepAndQuit = new Promise((resolve) => {
   setTimeout(() => {
     mongoose.connection.close()
+    //dummy comment to initiate pull request
     resolve()
   }, 5000)
 })
