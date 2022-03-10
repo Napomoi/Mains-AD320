@@ -2,8 +2,7 @@ import mongoose from 'mongoose'
 import { User } from '../models/User.js'
 
     //dummy comment to initiate pull request
-    //second comment
-    //third comment
+  
 
 
 const sleepAndQuit = new Promise((resolve) => {
