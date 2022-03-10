@@ -5,6 +5,7 @@ const sleepAndQuit = new Promise((resolve) => {
   setTimeout(() => {
     mongoose.connection.close()
     //dummy comment to initiate pull request
+    //second comment
     resolve()
   }, 5000)
 })
