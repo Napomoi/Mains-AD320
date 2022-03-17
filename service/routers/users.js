@@ -20,9 +20,6 @@ const getUsers = async (req, res) => {
     const users = await User.find({})
     sanitizeUsers(users)
     res.send(users)
-  }
-}
-*/
 
 const getUsers = async (req, res) => {
   const {userId} = req.user
