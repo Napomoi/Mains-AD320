@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Protected from './components/Auth/Protected'
-import CreateFlashcard from './components/Flashcard/CreateFlashcard'
+import CreateFlashcard from './components/FlashCard/CreateFlashcard'
 import AuthProvider from './components/Auth/AuthProvider'
 
 

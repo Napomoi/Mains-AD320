@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { List, ListItemButton, ListItemText, ListSubheader, Paper, Stack } from "@mui/material"
 
-import Flashcard from "../Flashcard/Flashcard"
+import Flashcard from "../FlashCard/FlashCard"
 
 const Deck = ({ deck }) => {
   const [index, setIndex] = useState(0)
